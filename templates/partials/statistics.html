@@ -1,0 +1,61 @@
+<div class="frame5">
+    <div class="frame51">
+        <div class="text2">
+            Stats
+        </div>
+        <div class="frame511">
+            <div class="frame521">
+                <div class="frameSt">
+                    <div class="text11">
+                        {{ stats.tracks_24h }}
+                    </div>
+                    <div class="btext2">
+                        tracks streamed past 24 hours
+                    </div>
+                </div>
+                <div class="frameSt">
+                    <div class="text11">
+                        {{ stats.minutes_24h }}
+                    </div>
+                    <div class="btext2">
+                        minutes streamed past 24 hours
+                    </div>
+                </div>
+            </div>
+            <div class="frame521">
+                <div class="frameSt">
+                    <div class="text11">
+                        {{ stats.tracks_7d }}
+                    </div>
+                    <div class="btext2">
+                        tracks streamed past 7 days
+                    </div>
+                </div>
+                <div class="frameSt">
+                    <div class="text11">
+                        {{ stats.minutes_7d }}
+                    </div>
+                    <div class="btext2">
+                        minutes streamed past 7 days
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frame52">
+        <div class="text2">
+            Top Genres
+        </div>
+        <div class="frame522">
+            <div class="genre-chart">
+                {% for genre, count in genres %}
+                <div class="genre-bar">
+                    <div class="bar" style="width: {{ count * 100 }}px;">
+                        <span class="bar-text">{{ genre }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

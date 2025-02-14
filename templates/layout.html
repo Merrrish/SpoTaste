@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>   
+</head>
+<body>
+    <div class="outer-container">
+        <div class="frame1">
+            <div class="frame2">
+                <!-- Профиль пользователя -->
+                <div class="profile-container">
+                    <img src="{{ user_image_url }}" class="profile-image">
+                </div>
+                <div class="text">
+                    {{ user_name }}
+                </div>
+                <div>
+                    <button class="button-cont1"><a href="/logout"><div class="btext6">Log Out</div></a></button>
+                </div>
+                <div class="frame3">
+                    <div class="frame4">
+                        <div class="frame41">
+                            <div class="txt41">
+                                <div class="text11">
+                                    {{ user_stats.followers }}
+                                </div>
+                                <div class="text1">
+                                    followers
+                                </div>
+                            </div>
+                            <div class="txt42">
+                                <div class="text11">
+                                    {{ followed_artists_count }}
+                                </div>
+                                <div class="text1">
+                                    following
+                                </div>
+                            </div>
+                            <div class="txt43">
+                                <div class="text11">
+                                    {{ user_stats.playlists }}
+                                </div>
+                                <div class="text1">
+                                    playlists
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frame42">
+                            <button class="button-cont" onclick="loadContent('statistics')"><div class="btext">STATISTICS</div></button>
+                            <button class="button-cont" onclick="loadContent('top-artists')"><div class="btext">TOP ARTISTS</div></button>
+                            <button class="button-cont" onclick="loadContent('top-tracks')"><div class="btext">TOP TRACKS</div></button>
+                            <button class="button-cont" onclick="loadContent('playlists')"><div class="btext">PLAYLISTS</div></button>
+                            <button class="button-cont" onclick="loadContent('recentlyplayed')"><div class="btext">RECENT</div></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Динамический контент -->
+                <div id="content">
+                    {% block content %}
+                    <!-- Начальный контент загружается сюда -->
+                    <div class="text2">Welcome! Choose Tab to check relevant information.</div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

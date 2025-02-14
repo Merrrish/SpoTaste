@@ -1,0 +1,37 @@
+<div class="frame51">
+    <div class="frame51">
+        <div class="text2">
+            Top Tracks
+        </div>
+        <div class="frame53">
+            <button onclick="changeTimePeriod('short_term')" class="button-cont1"><div class="btext3">4 Weeks</div></button>
+            <button onclick="changeTimePeriod('long_term')" class="button-cont1"><div class="btext3">All Time</div></button>
+            <button onclick="changeTimePeriod('medium_term')" class="button-cont1"><div class="btext3">6 Month</div></button>
+        </div>
+    </div>
+    <div class="frameSt1">
+        {% for track in tracks %}
+        <div class="track">
+            <div class="track1">
+                <div class="btext3">
+                    {{ loop.index }}.
+                </div>
+                <div class="cover">
+                    <img src="{{ track['cover'] }}" alt="Track cover">
+                </div>
+                <div class="cover1">
+                    <div class="btext3">
+                        {{ track['artist'] }}
+                    </div>
+                    <div class="btext4">
+                        {{ track['name'] }}
+                    </div>
+                </div>
+            </div>
+            <div class="btext3">
+                {{ track['duration'] }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

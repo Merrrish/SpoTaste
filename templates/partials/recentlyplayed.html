@@ -1,0 +1,29 @@
+<div class="frame5">
+    <div class="frame51">
+        <div class="text2">
+            Recently Played
+        </div>
+        <div class="frameSt1">
+            {% for track in tracks %}
+            <div class="track">
+                <div class="track1">
+                    <div class="cover">
+                        <img src="{{ track['cover_url'] }}" alt="Track cover">
+                    </div>
+                    <div class="cover1">
+                        <div class="btext3">
+                            {{ track['artist_name'] }}
+                        </div>
+                        <div class="btext4">
+                            {{ track['track_name'] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="btext3">
+                    {{ track['duration'] }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

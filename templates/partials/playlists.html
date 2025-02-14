@@ -1,0 +1,19 @@
+<div class="frame51">
+    <div class="frame51">
+        <div class="text2">
+            Playlists
+        </div>
+    </div>
+<div class="frameSt1">
+    <div class="frame531">
+        {% for playlist in playlists %}
+        <div class="playlist">
+            <img src="{{ playlist['image'] }}" alt="{{ playlist['name'] }}" class="playlist-image">
+            <div class="playlist-info">
+                <div class="btext4">{{ playlist['name'] }}</div>
+                <div class="btext3">{{ playlist['track_count'] }} tracks</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

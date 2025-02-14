@@ -1,0 +1,53 @@
+<div class="frame51">
+    <div class="frame51">
+        <div class="text2">
+            Top Artists
+        </div>
+        <div class="frame53">
+            <button onclick="changeTimePeriod('short_term')" class="button-cont1"><div class="btext3">4 Weeks</div></button>
+            <button onclick="changeTimePeriod('long_term')" class="button-cont1"><div class="btext3">All Time</div></button>
+            <button onclick="changeTimePeriod('medium_term')" class="button-cont1"><div class="btext3">6 Month</div></button>
+        </div>
+    </div>
+    <div class="frameSt1">
+        <!-- Первый ряд: артисты 1-5 -->
+        <div class="frame526">
+            {% for artist in artists[:5] %}
+            <div class="frame523">
+                <div class="frame524">
+                    <img src="{{ artist['image'] }}" alt="{{ artist['name'] }}" class="artist-image">
+                    <div class="frame525">
+                        <div class="btext3">
+                            {{ loop.index }}
+                        </div>
+                        <div class="btext4">
+                            {{ artist['name'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Второй ряд: артисты 6-10 -->
+        <div class="frame526">
+            {% for artist in artists[5:] %}
+            <div class="frame523">
+                <div class="frame524">
+                    <img src="{{ artist['image'] }}" alt="{{ artist['name'] }}" class="artist-image">
+                    <div class="frame525">
+                        <div class="btext3">
+                            {{ loop.index + 5 }}
+                        </div>
+                        <div class="btext4">
+                            {{ artist['name'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+</div>

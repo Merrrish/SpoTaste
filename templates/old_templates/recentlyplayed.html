@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style/style.css') }}">
+</head>
+<body>
+    <div class="outer-container">
+        <div class="frame1">
+            <div class="frame2">
+                <div class="profile-container">
+                    <img src="{{ user_image_url }}" class="profile-image">
+                </div>
+                <div class="text">
+                    {{ user_name }}
+                </div>
+                <div class="frame3">
+                    <div class="frame4">
+                        <div class="frame41">
+                            <div class="txt41">
+                                <div class="text11">
+                                    {{ user_stats.followers }}
+                                </div>
+                                <div class="text1">
+                                    followers
+                                </div>
+                            </div>
+                            <div class="txt42">
+                                <div class="text11">
+                                    {{ followed_artists_count }}
+                                </div>
+                                <div class="text1">
+                                    following
+                                </div>
+                            </div>
+                            <div class="txt43">
+                                <div class="text11">
+                                    {{ user_stats.playlists }}
+                                </div>
+                                <div class="text1">
+                                    playlists
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frame42">
+                            <a href="/statistics">
+                                <button class="button-cont"><div class="btext">STATISTICS</div></button>
+                            </a>
+                            <a href="/top-artists">
+                                <button class="button-cont"><div class="btext">top artists</div></button>
+                            </a>
+                            <a href="/top-tracks">
+                                <button class="button-cont"><div class="btext">top tracks</div></button>
+                            </a>
+                            <a href="/playlists">
+                                <button class="button-cont"><div class="btext">playlists</div></button>
+                            </a>
+                            <a href="/recentlyplayed">
+                                <button class="button-cont"><div class="btext">recent</div></button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="frame5">
+                        <div class="frame51">
+                            <div class="text2">
+                                Recently Played
+                            </div>
+                            <div class="frameSt1">
+                                {% for track in tracks %}
+                                <div class="track">
+                                    <div class="track1">
+                                        <div class="cover">
+                                            <img src="{{ track['cover_url'] }}" alt="Track cover">
+                                        </div>
+                                        <div class="cover1">
+                                            <div class="btext3">
+                                                {{ track['artist_name'] }}
+                                            </div>
+                                            <div class="btext4">
+                                                {{ track['track_name'] }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btext3">
+                                        {{ track['duration'] }}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
