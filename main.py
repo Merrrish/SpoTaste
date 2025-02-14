@@ -168,5 +168,5 @@ def recentlyplayed():
     return render_template('layout.html', data_type='tracks', user_name=user_name, user_image_url=user_image_url, followed_artists_count=followed_artists_count, user_stats=user_stats, tracks=tracks)
 
 
-if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
