@@ -17,7 +17,7 @@ app.secret_key = secret_key  # Уникальный ключ для сессий
 def login():
     # Проверяем, есть ли токен в сессии
     if 'token_info' in session:
-        return redirect(url_for('statistics'))  # Перенаправление на статистику
+        return redirect('https://spotaste-production.up.railway.app/statistics')
 
     # Если токена нет, рендерим страницу логина
     return render_template('login.html')
