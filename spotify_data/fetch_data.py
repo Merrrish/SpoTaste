@@ -6,16 +6,13 @@ import os
 from collections import Counter
 from datetime import datetime, timedelta
 
-# Загружаем переменные из .env
 load_dotenv()
 
-# Используем переменные из .env
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 REDIRECT_URI = os.getenv('REDIRECT_URI')
 SCOPES = os.getenv('SCOPES')
 
-# Инициализация Spotify клиента
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID, 
                                                client_secret=CLIENT_SECRET, 
                                                redirect_uri=REDIRECT_URI, 
